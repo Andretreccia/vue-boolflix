@@ -1,5 +1,5 @@
 <template>
-  <h1>Titolo header</h1>
+  <h1>Boolflix</h1>
 </template>
 
 <script>

@@ -1,12 +1,15 @@
 <template>
   <div>
-    <input v-model="userInput" type="text" placeholder="cerca un film" />
-    <button @click="callSearch">search</button>
+    <div class="d-flex justify-content-center">
+      <h2 class="me-5">Cerca film nei nostri archivi:</h2>
+      <input v-model="userInput" type="text" placeholder="cerca un film" />
+      <button @click="callSearch">search</button>
+    </div>
     <div class="container">
       <div class="row justify-content-center py-5">
-        <div class="col col-5" v-for="film in films" :key="film.qualcosa">
-          <div class="card p-3">
-            <h4 class="text-center">Film:</h4>
+        <div class="col col-5" v-for="film in films" :key="film.id">
+          <div class="card p-3 bg-dark bg-opacity-10 mt-4">
+            <h4 class="text-center">{{ film.title }}</h4>
             <div class="title">
               <span>Titolo: {{ film.title }}</span>
             </div>
