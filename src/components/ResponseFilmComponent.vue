@@ -18,6 +18,12 @@
         <div class="voto">
           <span>Voto: {{ film.vote_average }}</span>
         </div>
+        <div class="image">
+          <img
+            :src="`https://image.tmdb.org/t/p/w200` + film.poster_path"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   </div>
