@@ -15,8 +15,19 @@
             <flag :iso="film.original_language" />
           </span>
         </div>
-        <div class="voto">
-          <span>Voto: {{ film.vote_average }}</span>
+        <div
+          class="voto"
+          v-for="icon in Math.round(film.vote_average / 2)"
+          :key="icon"
+        >
+          <i class="fas fa-star"></i>
+        </div>
+        <div
+          class="voto"
+          v-for="icon in 5 - Math.round(film.vote_average / 2)"
+          :key="icon"
+        >
+          <i class="far fa-star"></i>
         </div>
         <div class="image">
           <img

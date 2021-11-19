@@ -15,9 +15,10 @@
             <flag :iso="tvSerie.original_language" />
           </span>
         </div>
-        <div class="voto">
-          <span>Voto: {{ tvSerie.vote_average }}</span>
-        </div>
+        <!-- <div class="voto">
+          <span>Voto: {{ Math.round(tvSerie.vote_average / 2) }}</span>
+        </div> -->
+
         <div class="image">
           <img
             :src="`https://image.tmdb.org/t/p/w200` + tvSerie.poster_path"
