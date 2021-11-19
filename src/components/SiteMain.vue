@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       films: [],
+      tv: [],
       loading: false,
       apiKey: "cde5362f29f305e58d2e01a906c2d55",
       userInput: "",
@@ -29,18 +30,30 @@ export default {
   mounted() {},
   methods: {
     callSearch() {
+      let reqMovie =
+        "https://api.themoviedb.org/3/search/movie?api_key=" +
+        this.apiKey +
+        "e&language=en-US&query=" +
+        this.userInput +
+        "&page=1&include_adult=false";
+
+      let reqTv =
+        "https://api.themoviedb.org/3/search/tv?api_key=" +
+        this.apiKey +
+        "e&language=en-US&query=" +
+        this.userInput +
+        "&page=1&include_adult=false";
+      const rOne = axios.get(reqMovie);
+      const rTwo = axios.get(reqTv);
       axios
-        .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=" +
-            this.apiKey +
-            "e&language=en-US&query=" +
-            this.userInput +
-            "&page=1&include_adult=false"
+        .all([rOne, rTwo])
+        .then(
+          axios.spread((...r) => {
+            this.films = r[0].data.results;
+            this.tv = r[1].data.results;
+            console.log(this.tv);
+          })
         )
-        .then((r) => {
-          this.films = r.data.results;
-          this.loading = true;
-        })
         .catch((e) => {
           console.log(e, "Non funge");
         });

@@ -10,7 +10,10 @@
           <span>Titolo originale: {{ film.original_title }}</span>
         </div>
         <div class="lingua">
-          <span>Lingua: <flag :iso="film.original_language" /> </span>
+          <span
+            >Lingua: {{ film.original_language }}
+            <flag :iso="film.original_language" />
+          </span>
         </div>
         <div class="voto">
           <span>Voto: {{ film.vote_average }}</span>
