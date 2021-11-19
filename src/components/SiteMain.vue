@@ -6,7 +6,12 @@
       <button @click="callSearch">search</button>
     </div>
     <div class="container">
+      film
       <ResponseFilmComponent :films="films" />
+      <hr />
+      <hr />
+      serie tv
+      <ResponseTvComponent :tvSeries="tvSeries" />
     </div>
   </div>
 </template>
@@ -14,15 +19,16 @@
 <script>
 import axios from "axios";
 import ResponseFilmComponent from "./ResponseFilmComponent.vue";
+import ResponseTvComponent from "./ResponseTvComponent.vue";
 export default {
   components: {
     ResponseFilmComponent,
+    ResponseTvComponent,
   },
   data() {
     return {
       films: [],
-      tv: [],
-      loading: false,
+      tvSeries: [],
       apiKey: "cde5362f29f305e58d2e01a906c2d55",
       userInput: "",
     };
@@ -34,15 +40,15 @@ export default {
         "https://api.themoviedb.org/3/search/movie?api_key=" +
         this.apiKey +
         "e&language=en-US&query=" +
-        this.userInput +
-        "&page=1&include_adult=false";
+        this.userInput; /* +
+        "&page=1&include_adult=false" */
 
       let reqTv =
         "https://api.themoviedb.org/3/search/tv?api_key=" +
         this.apiKey +
         "e&language=en-US&query=" +
-        this.userInput +
-        "&page=1&include_adult=false";
+        this.userInput; /* +
+        "&page=1&include_adult=false" */
       const rOne = axios.get(reqMovie);
       const rTwo = axios.get(reqTv);
       axios
@@ -50,8 +56,8 @@ export default {
         .then(
           axios.spread((...r) => {
             this.films = r[0].data.results;
-            this.tv = r[1].data.results;
-            console.log(this.tv);
+            this.tvSeries = r[1].data.results;
+            console.log(this.tvSeries);
           })
         )
         .catch((e) => {
