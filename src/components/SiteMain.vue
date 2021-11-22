@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-dark">
+  <main>
     <div class="container">
       <ResponseMovieComponent :films="films" :tvSeries="tvSeries" />
       <hr />

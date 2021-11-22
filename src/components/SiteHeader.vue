@@ -1,12 +1,12 @@
 <template>
   <header id="site-header" class="position-fixed w-100">
     <nav class="navbar navbar-light bg-dark justify-content-between">
-      <a class="navbar-brand text-light ms-5">BOOLFIX</a>
+      <a class="navbar-brand ms-5 text-primary fs-2">BOOLFIX</a>
       <form class="d-flex me-5" v-on:submit.prevent>
         <input
           class="form-control mr-sm-2 bg-dark text-light"
           type="search"
-          placeholder="cerca un film"
+          placeholder="cerca film e serie tv"
           v-model="userInput"
         />
         <button
