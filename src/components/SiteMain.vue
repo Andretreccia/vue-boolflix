@@ -1,73 +1,30 @@
 <template>
-  <div>
-    <!-- <div class="d-flex justify-content-center">
-      <h2 class="me-5">Cerca film nei nostri archivi:</h2>
-      <input v-model="userInput" type="text" placeholder="cerca un film" />
-      <button @click="callSearch">search</button>
-    </div> -->
+  <main class="bg-dark">
     <div class="container">
       film
-      <ResponseFilmComponent :films="films" />
+      <ResponseMovieComponent :films="films" :tvSeries="tvSeries" />
       <hr />
       <hr />
-      serie tv
-      <ResponseTvComponent :tvSeries="tvSeries" />
+      <!-- serie tv
+      <ResponseTvComponent :tvSeries="tvSeries" /> -->
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-import ResponseFilmComponent from "./ResponseFilmComponent.vue";
-import ResponseTvComponent from "./ResponseTvComponent.vue";
+import ResponseMovieComponent from "./ResponseMovieComponent.vue";
+//import ResponseTvComponent from "./ResponseTvComponent.vue";
 export default {
   components: {
-    ResponseFilmComponent,
-    ResponseTvComponent,
+    ResponseMovieComponent,
+    //ResponseTvComponent,
   },
   props: {
     tvSeries: Array,
     films: Array,
   },
-  /* data() {
-    
-        films: [],
-      tvSeries: [],
-      apiKey: "cde5362f29f305e58d2e01a906c2d55",
-      userInput: "", 
-    
-  } */ mounted() {},
-  methods: {
-    /* callSearch() {
-      let reqMovie =
-        "https://api.themoviedb.org/3/search/movie?api_key=" +
-        this.apiKey +
-        "e&language=en-US&query=" +
-        this.userInput;
-        
-
-      let reqTv =
-        "https://api.themoviedb.org/3/search/tv?api_key=" +
-        this.apiKey +
-        "e&language=en-US&query=" +
-        this.userInput;
-       
-      const rOne = axios.get(reqMovie);
-      const rTwo = axios.get(reqTv);
-      axios
-        .all([rOne, rTwo])
-        .then(
-          axios.spread((...r) => {
-            this.films = r[0].data.results;
-            this.tvSeries = r[1].data.results;
-            console.log(this.tvSeries);
-          })
-        )
-        .catch((e) => {
-          console.log(e, "Non funge");
-        });
-      console.log(this.film);
-    }, */
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
