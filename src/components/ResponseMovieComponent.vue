@@ -18,21 +18,31 @@
             </span>
           </div>
           <div class="voto">
+            <!-- <i
+              class="fas fa-star text-warning"
+              v-for="icon in parseInt((film.vote_average / 2).toFixed(0))"
+              :key="icon"
+            ></i> -->
             <i
               class="fas fa-star text-warning"
               v-for="icon in Math.round(film.vote_average / 2)"
               :key="icon"
             ></i>
+            <!-- <i
+              class="far fa-star text-warning"
+              v-for="icon in parseInt(5 - (film.vote_average / 2).toFixed(0))"
+              :key="icon.id"
+            ></i> -->
             <i
               class="far fa-star text-warning"
               v-for="icon in 5 - Math.round(film.vote_average / 2)"
-              :key="icon"
+              :key="icon.id"
             ></i>
           </div>
           <div class="overview">
             <p v-if="film.overview.length > 180">
               Overview:
-              {{ film.overview.substring(1, 300) + "..." }}
+              {{ film.overview.substring(-1, 300) + "..." }}
             </p>
             <p v-else>
               Overview:
@@ -75,7 +85,7 @@
             <i
               class="fas fa-star text-warning"
               v-for="icon in Math.round(tvSerie.vote_average / 2)"
-              :key="icon"
+              :key="icon.id"
             ></i>
             <i
               class="far fa-star text-warning"
@@ -86,7 +96,7 @@
           <div class="overview">
             <p v-if="tvSerie.overview.length > 180">
               Overview:
-              {{ tvSerie.overview.substring(1, 300) + "..." }}
+              {{ tvSerie.overview.substring(-1, 300) + "..." }}
             </p>
             <p v-else>
               Overview:
@@ -134,13 +144,15 @@ export default {
       width: 300px;
       z-index: 2;
       &:hover {
-        filter: opacity(0);
+        filter: opacity(0.05);
         transition: 1s;
       }
     }
     .testo {
       position: absolute;
       width: 300px;
+      padding: 1rem;
+      text-align: center;
     }
   }
 }
