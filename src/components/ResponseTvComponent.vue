@@ -15,6 +15,13 @@
             <flag :iso="tvSerie.original_language" />
           </span>
         </div>
+        <div
+          class="voto"
+          v-for="icon in 5 - Math.round(tvSerie.vote_average / 2)"
+          :key="icon"
+        >
+          <i class="far fa-star"></i>
+        </div>
         <!-- <div class="voto">
           <span>Voto: {{ Math.round(tvSerie.vote_average / 2) }}</span>
         </div> -->
