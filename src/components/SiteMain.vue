@@ -1,7 +1,6 @@
 <template>
   <main class="bg-dark">
     <div class="container">
-      film
       <ResponseMovieComponent :films="films" :tvSeries="tvSeries" />
       <hr />
       <hr />
